@@ -1,21 +1,18 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "name": "sequential-asker",
+  "version": "0.1.0",
+  "description": "A multi-platform desktop game of questions and answers built with Electron.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/Duerno/sequential-asker",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "game",
+    "desktop"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Felipe Duerno",
   "devDependencies": {
     "electron": "^9.2.1"
   }
