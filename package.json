@@ -1,6 +1,6 @@
 {
   "name": "sequential-asker",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A multi-platform desktop game of questions and answers built with Electron.",
   "main": "main.js",
   "scripts": {

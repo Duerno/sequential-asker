@@ -1,21 +1,22 @@
 // Modules to control application life and create native browser window
 const electron = require('electron')
-const Store = require('electron-store')
-const path = require('path')
 const fs = require('fs')
+const path = require('path')
 const YAML = require('yaml')
+const Store = require('electron-store')
 
 // Globals to manage application data
 const QA_FILE_KEY = 'qa-file'
 let appSettings = null
 let mainWindow = null
+let settingsWindow = null
 
 // Create a generic browser window, but do not load an html into it.
-function createWindow () {
+function createWindow (width=800, height=600) {
   // Create the browser window.
   const mainWindow = new electron.BrowserWindow({
-    width: 800,
-    height: 600,
+    width: width,
+    height: height,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -46,6 +47,15 @@ electron.app.whenReady().then(() => {
   } else {
     mainWindow.loadFile('game.html')
   }
+
+  // Register shortcut for the preferences window
+  electron.globalShortcut.register('CommandOrControl+Shift+P', () => {
+    if (!settingsWindow) {
+      settingsWindow = createWindow(400, 600)
+      settingsWindow.loadFile('preferences.html')
+    }
+    settingsWindow.focus()
+  })
 })
 
 // On macOS it's common to re-create a window in the app when the
