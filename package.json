@@ -1,6 +1,6 @@
 {
   "name": "sequential-asker",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A multi-platform desktop game of questions and answers built with Electron.",
   "main": "main.js",
   "scripts": {
@@ -12,8 +12,11 @@
     "game",
     "desktop"
   ],
-  "author": "Felipe Duerno",
+  "author": "felipe.duerno.al@gmail.com",
   "devDependencies": {
-    "electron": "^9.2.1"
+    "electron": "^9.2.1",
+    "electron-store": "^6.0.0",
+    "fs": "^0.0.1-security",
+    "yaml": "^1.10.0"
   }
 }

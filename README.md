@@ -21,5 +21,5 @@ Once the correct answer is found, the app moves on to the next question. After t
 
 > Note: if the file is invalid or does not exist, the app displays an error message and does nothing else.
 
-You can open the app settings by using the shortcut `Cmd + ,`. There it is possible to change:
+You can open the app preferences by using the shortcut `CmdORCtrl + Shift + P`. There, it is possible to change:
 - The path of the file with the questions and answers.

@@ -5,13 +5,17 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <title>Sequential Asker</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    <h1>Failed to start game</h1>
+    <!-- TODO(duerno): make this span work -->
+    <p>Game failed to start with error: <span id="error"></span></p>
+    <p>Suggestions:</p>
+    <ul>
+      <li>Type CmdOrCtrl+Shift+P to open the app preferences and update the game data file location.</li>
+      <li>Update the game data file in order to get a valid file.</li>
+    </ul>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>

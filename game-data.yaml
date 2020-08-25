@@ -1,0 +1,7 @@
+questions:
+  - statement: 'ping'
+    feedback: 'pong'
+  - statement: 'abre'
+    feedback: 'fecha'
+
+endMessage: 'the end'
