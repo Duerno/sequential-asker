@@ -13,13 +13,22 @@ npm install
 npm start
 ```
 
-## How the app works
+## How the game works
 
-When the app starts, it loads an .yaml file containing a sequence of questions and their correct answers. After the file is loaded, it displays the first question, a text field for the user to write their answer, and a button to check whether the answer is correct.
+When the app starts, it loads an `.yaml` file containing the game data. This data must contain the sequence of questions (composed by their statements and feedbacks) and the final game message. Below is shown an example of a valid game data file:
 
-Once the correct answer is found, the app moves on to the next question. After the last question is answered correctly, the app displays a final message and does nothing else.
+```yaml
+questions:
+  - statement: 'ping'
+    feedback: 'pong'
+  - statement: 'abre'
+    feedback: 'fecha'
 
-> Note: if the file is invalid or does not exist, the app displays an error message and does nothing else.
+finalMessage: 'the end'
+```
 
-You can open the app preferences by using the shortcut `CmdORCtrl + Shift + P`. There, it is possible to change:
-- The path of the file with the questions and answers.
+After the file is loaded, a game begins in a typical messaging app conversation. In this conversation, the game asks the first question and the user must write an answer for that. If the user writes the wrong answer, the game sends the same question again. Once the user writes the correct answer, the game asks the next question. After the last question is answered correctly, the game sends a final message and answers no more player messages.
+
+> Note: if the game data file is invalid or does not exist, the app displays a setup message and waits.
+
+You can open the app preferences by using the shortcut `CmdORCtrl + Shift + P`. There, it is possible to change the path of the game data file.

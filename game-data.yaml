@@ -4,4 +4,4 @@ questions:
   - statement: 'abre'
     feedback: 'fecha'
 
-endMessage: 'the end'
+finalMessage: 'the end'
