@@ -2,17 +2,6 @@
 
 _Sequential Asker_ is a multi-platform desktop game of questions and answers built with [Electron](https://electronjs.org).
 
-## Getting started
-
-From your command line:
-
-```bash
-# Install dependencies
-npm install
-# Run the app
-npm start
-```
-
 ## How the game works
 
 When the app starts, it loads an `.yaml` file containing the game data. This data must contain the sequence of questions (composed by their statements and feedbacks) and the final game message. Below is shown an example of a valid game data file:
@@ -32,3 +21,14 @@ After the file is loaded, a game begins in a typical messaging app conversation.
 > Note: if the game data file is invalid or does not exist, the app displays a setup message and waits.
 
 You can open the app preferences by using the shortcut `CmdORCtrl + Shift + P`. There, it is possible to change the path of the game data file.
+
+## Getting started
+
+Run the commands below from the root of this repository using a terminal:
+
+```bash
+# Install dependencies
+npm install
+# Run the app
+npm start
+```

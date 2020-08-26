@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Sequential Asker</title>
-  </head>
-  <body>
-    <h1>Game Setup</h1>
 
-    <p>Hey, it is time to setup your game data!</p>
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <title>Sequential Asker</title>
+</head>
 
-    <span id="setup-game-error"></span>
+<body>
+  <h1>Game Setup</h1>
 
-    <h4>Suggestions:</h4>
-    <ul>
-      <li>Update the game preferences below.</li>
-      <li>Update the game data file in order to get a valid file.</li>
-    </ul>
+  <p>Hey, it is time to setup your game data!</p>
 
-    <h4>App preferences:</h4>
-    <!-- TODO(duerno): make this form work -->
-    <form>
-      <label for="game-data">Game data file: </label>
-      <!-- TODO(duerno): make this value work -->
-      <input type="file" id="game-data" name="game-data" value="...">
-      <input type="submit" value="Update">
-    </form>
+  <span id="setup-game-error"></span>
 
-    <!-- Require the setup page renderer -->
-    <script src="../js/setup-renderer.js"></script>
-  </body>
+  <h4>Suggestions:</h4>
+  <ul>
+    <li>Update the game preferences below.</li>
+    <li>Update the game data file in order to get a valid file.</li>
+  </ul>
+
+  <h4>Preferences:</h4>
+  <p>Current game data location: <span id="curr-game-data-location"></span></p>
+  <form>
+    <label for="game-data-location">Update game data location: </label>
+    <!-- TODO(duerno): make this value work -->
+    <input type="file" id="game-data-location" name="game-data-location" value="...">
+    <input type="submit" id="game-data-form-submit" value="Update">
+  </form>
+
+  <!-- Require the setup page renderer -->
+  <script src="../js/setup-renderer.js"></script>
+</body>
+
 </html>
