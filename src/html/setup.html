@@ -3,18 +3,23 @@
 
 <head>
   <meta charset="UTF-8">
+
+  <title>Sequential Asker</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/styles.css">
+
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
   <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-  <title>Sequential Asker</title>
 </head>
 
 <body>
   <h1>Game Setup</h1>
 
-  <p>Hey, it is time to setup your game data!</p>
+  <p>Hey, it is time to setup the game data!</p>
 
-  <span id="setup-game-error"></span>
+  <span id="game-load-error"></span>
 
   <h4>Suggestions:</h4>
   <ul>
@@ -24,9 +29,8 @@
 
   <h4>Preferences:</h4>
   <p>Current game data location: <span id="curr-game-data-location"></span></p>
-  <form>
+  <form action="#">
     <label for="game-data-location">Update game data location: </label>
-    <!-- TODO(duerno): make this value work -->
     <input type="file" id="game-data-location" name="game-data-location" value="...">
     <input type="submit" id="game-data-form-submit" value="Update">
   </form>

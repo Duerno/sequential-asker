@@ -1,8 +1,8 @@
 // Modules to control application life and create native browser window
 const electron = require('electron')
 
-// Internal modules to control the game
-const appController = require('./src/js/controller')
+// Internal modules to control the application
+const appController = require('./src/js/app-controller')
 
 // Create a generic browser window, but do not load an html into it.
 function createWindow() {
@@ -22,9 +22,9 @@ electron.app.whenReady().then(() => {
   // Initialize the app
   appController.loadApp(createWindow())
 
-  // Register shortcut for the game setup page
+  // Register shortcut for the setup page
   electron.globalShortcut.register('CommandOrControl+Shift+P', () => {
-    appController.openGameSetup()
+    appController.openSetupPage()
   })
 })
 

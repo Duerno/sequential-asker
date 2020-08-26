@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Sequential Asker</title>
-  </head>
-  <body>
-    <h1>Sequential Asker</h1>
-    <span id="input"></span>
 
-    <!-- Require the game page renderer -->
-    <script src="../js/game-renderer.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+
+  <title>Sequential Asker</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+</head>
+
+<body>
+  <div id="conversation">
+    <table id="conversation-table">
+      <tbody id="conversation-table-body">
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <form id="user-message-form" action="#">
+      <input type="text" id="user-message-input" name="user-message-input" autofocus placeholder="Type a message">
+    </form>
+  </div>
+
+  <!-- Require the game page renderer -->
+  <script src="../js/game-renderer.js"></script>
+</body>
+
 </html>
