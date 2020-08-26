@@ -1,6 +1,5 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// No Node.js APIs are available in this process because
-// `nodeIntegration` is turned off. Use `preload.js` to
-// selectively enable features needed in the rendering
-// process.
+let electron = require('electron')
+
+electron.ipcRenderer.on('setup-set-game-setup-error', (_, arg) => {
+  document.getElementById('setup-game-error').innerHTML = `<p>Seems like the game couldn't start for this reason: ${arg.err}.</p>`
+})

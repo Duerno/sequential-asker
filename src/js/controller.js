@@ -3,6 +3,7 @@
 const fs = require('fs')
 const YAML = require('yaml')
 const Store = require('electron-store')
+const { ipcMain } = require('electron')
 
 module.exports = {
   /*
@@ -21,6 +22,9 @@ module.exports = {
     // Load the initial html of the app
     if (err) {
       appWindow.loadFile('./src/html/setup.html')
+      ipcMain.on('setup-page-loaded', (event, _) => {
+        event.sender.send('setup-set-game-setup-error', { err } )
+      })
     } else {
       appWindow.loadFile('./src/html/game.html')
     }

@@ -6,13 +6,13 @@ const path = require('path')
 const appController = require('./src/js/controller')
 
 // Create a generic browser window, but do not load an html into it.
-function createWindow(width = 800, height = 600) {
+function createWindow() {
   // Create the browser window.
   const window = new electron.BrowserWindow({
-    width: width,
-    height: height,
+    width: 800,
+    height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'src/js/preload.js')
+      nodeIntegration: true
     }
   })
 
