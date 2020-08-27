@@ -14,7 +14,7 @@ let gameState = {
 
 module.exports = {
   // loadGame: loads the game data
-  async loadGame(gameDataLocation) {
+  loadGame(gameDataLocation) {
     return loadGameData(gameDataLocation)
   }
 }
