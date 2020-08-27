@@ -9,6 +9,7 @@ const YAML = require('yaml')
 let gameState = {
   questionNumber: 0,
   finalMessageSent: false,
+  pendingAnswer: false,
   gameData: null,
 }
 
@@ -68,6 +69,7 @@ function loadGameData(gameDataLocation) {
 function initConversation() {
   gameState.questionNumber = 0
   gameState.finalMessageSent = false
+  gameState.pendingAnswer = false
   return gameState.gameData.questions[0].statement
 }
 
@@ -115,7 +117,11 @@ ipcMain.on('game-user-message-received', (event, arg) => {
   event.sender.send('game-insert-message', { owner: 'user', message: arg.userMessage })
 
   let answer = gameAnswer(arg.userMessage)
-  if (answer) {
-    event.sender.send('game-insert-message', { owner: 'game', message: answer })
+  if (answer && !gameState.pendingAnswer) {
+    gameState.pendingAnswer = true
+    setTimeout(() => {
+      event.sender.send('game-insert-message', { owner: 'game', message: answer })
+      gameState.pendingAnswer = false
+    }, 1000)
   }
 })
