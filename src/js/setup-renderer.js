@@ -11,6 +11,8 @@ ipcRenderer.on('setup-set-curr-game-data-location', (_, arg) => {
 ipcRenderer.on('setup-set-game-load-error', (_, arg) => {
   if (arg.err && arg.err.length > 0) {
     document.getElementById('game-load-error').innerHTML = `<p>Seems like the game couldn't start for this reason: ${arg.err}.</p>`
+  } else {
+    document.getElementById('game-load-error').innerHTML = ''
   }
 })
 

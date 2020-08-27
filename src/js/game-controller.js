@@ -44,7 +44,21 @@ function loadGameData(gameDataLocation) {
   }
 
   // Validate file
-  // TODO(duerno): add validation here
+  if (!rawGameData.finalMessage) {
+    return `failed to validate game data: field 'finalMessage' must not be empty`
+  }
+  if (!rawGameData.questions) {
+    return `failed to validate game data: field 'questions' must not be empty`
+  }
+  if (!Array.isArray(rawGameData.questions)) {
+    return `failed to validate game data: field 'questions' must be an array`
+  }
+  for (const idx in rawGameData.questions) {
+    const question = rawGameData.questions[idx]
+    if (!(question.statement) || !(question.feedback)) {
+      return `failed to validate game data: all questions must have a statement and a feedback`
+    }
+  }
 
   gameState.gameData = rawGameData
   return null
