@@ -1,22 +1,58 @@
 {
   "name": "sequential-asker",
-  "version": "2.0.0",
   "description": "A multi-platform desktop game of questions and answers built with Electron.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Felipe Duerno",
+    "email": "felipe.duerno.al@gmail.com"
+  },
+  "homepage": "https://github.com/Duerno/sequential-asker",
+  "repository": "https://github.com/Duerno/sequential-asker",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "repository": "https://github.com/Duerno/sequential-asker",
   "keywords": [
-    "Electron",
+    "desktop",
     "game",
-    "desktop"
+    "Electron"
   ],
-  "author": "felipe.duerno.al@gmail.com",
   "devDependencies": {
     "electron": "^9.2.1",
+    "electron-builder": "^22.8.0"
+  },
+  "dependencies": {
     "electron-store": "^6.0.0",
     "fs": "^0.0.1-security",
     "yaml": "^1.10.0"
-  }
+  },
+  "build": {
+    "appId": "com.duerno.${name}",
+    "productName": "Sequential Asker",
+    "artifactName": "${name}-${version}-${platform}.${ext}",
+    "directories": {
+      "output": "dist/"
+    },
+    "mac": {
+      "category": "public.app-category.other",
+      "target": "default",
+      "icon": "build/icon.png",
+      "type": "distribution",
+      "hardenedRuntime": false
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": "x64"
+        }
+      ],
+      "icon": "build/icon.png",
+      "verifyUpdateCodeSignature": false,
+      "signAndEditExecutable": false
+    }
+  },
+  "postinstall": "electron-builder install-app-deps"
 }
