@@ -78,7 +78,7 @@ function gameAnswer(userMessage) {
   }
 
   const currQuestion = gameState.gameData.questions[gameState.questionNumber]
-  if (userMessage != currQuestion.feedback) {
+  if (!isCorrectAnswer(userMessage, currQuestion.feedback)) {
     return currQuestion.statement
   }
 
@@ -90,6 +90,13 @@ function gameAnswer(userMessage) {
 
   gameState.finalMessageSent = true
   return gameState.gameData.finalMessage
+}
+
+// Check user answer
+function isCorrectAnswer(userAnswer, feedback) {
+  let formattedUserAnswer = userAnswer.replace(/\s/g,'').toLowerCase()
+  let formattedFeedback = feedback.replace(/\s/g,'').toLowerCase()
+  return formattedUserAnswer === formattedFeedback
 }
 
 /*
