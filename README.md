@@ -31,4 +31,6 @@ Run the commands below from the root of this repository using a terminal:
 npm install
 # Run the app
 npm start
+# Build app installers
+yarn dist
 ```

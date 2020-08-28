@@ -12,7 +12,7 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder -mwl"
   },
   "keywords": [
     "desktop",
@@ -29,29 +29,29 @@
     "yaml": "^1.10.0"
   },
   "build": {
-    "appId": "com.duerno.${name}",
+    "appId": "com.duerno.sequentialasker",
     "productName": "Sequential Asker",
-    "artifactName": "${name}-${version}-${platform}.${ext}",
+    "artifactName": "${name}-${version}-${os}.${ext}",
     "directories": {
       "output": "dist/"
     },
     "mac": {
       "category": "public.app-category.other",
-      "target": "default",
+      "target": "dmg",
       "icon": "build/icon.png",
       "type": "distribution",
       "hardenedRuntime": false
     },
     "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": "x64"
-        }
-      ],
+      "target": "nsis",
       "icon": "build/icon.png",
       "verifyUpdateCodeSignature": false,
       "signAndEditExecutable": false
+    },
+    "linux": {
+      "target": "deb",
+      "icon": "build/icon.png",
+      "executableName": "sequentialasker"
     }
   },
   "postinstall": "electron-builder install-app-deps"
